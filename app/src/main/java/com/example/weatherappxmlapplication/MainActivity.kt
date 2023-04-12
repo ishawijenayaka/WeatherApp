@@ -86,8 +86,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun boilingAlert(){
-        val tem =  binding.textTemp.text
-        if (10 < 20.0){
+        val tem =  Integer.parseInt(binding.textTemp.text as String)
+        if ( tem > 20.0){
             val builder = NotificationCompat.Builder(this,Constants.ChannelID)
                 .setSmallIcon(R.drawable.wb_sunny)
                 .setContentTitle("Weather Notification")
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             notificationManager.notify(Constants.notificationID,builder)
 
         }else{
-            if (10 <= 0){
+            if (tem <= 0){
                 val builder1 = NotificationCompat.Builder(this ,Constants.ChannelID)
                     .setSmallIcon(R.drawable.wb_sunny)
                     .setContentTitle("Weather Notification")

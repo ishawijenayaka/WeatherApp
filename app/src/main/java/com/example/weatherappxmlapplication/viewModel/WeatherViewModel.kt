@@ -22,8 +22,6 @@ constructor(private val weatherRepository: WeatherRepository) : ViewModel(){
     private val _responseCity = MutableLiveData<FullWeatherResponse>()
     val responseWeatherCity : MutableLiveData<FullWeatherResponse> get() = _responseCity
 
-
-
     fun getCityWeather(city : String, appId : String) = viewModelScope.launch {
         weatherRepository.getCityWeather(city, appId).let { responseC ->
             if (responseC.isSuccessful){
